@@ -80,7 +80,7 @@ def main():
     # Generate default output filename
     if args.output is None:
         today = datetime.now().strftime("%Y-%m-%d")
-        args.output = f"climate_ai_digest_{today}.md"
+        args.output = f"output/climate_ai_digest_{today}.md"
     
     # Check for API key if using LLM
     if args.use_llm and not os.environ.get("ANTHROPIC_API_KEY"):

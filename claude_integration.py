@@ -27,7 +27,7 @@ def get_api_key() -> str:
 def call_claude(
     prompt: str,
     system: Optional[str] = None,
-    model: str = "claude-sonnet-4-20250514",
+    model: str = "claude-haiku-4-5-20251001",
     max_tokens: int = 1024,
     temperature: float = 0.3
 ) -> str:
@@ -87,8 +87,8 @@ def score_paper_relevance(abstract: str) -> int:
     prompt = f"""Score from 0-5 how relevant this paper is to the intersection of AI and climate science.
 
 Scoring guide:
-- 5 = Directly contributes to climate modeling, mitigation, or adaptation using AI/ML
-- 4 = Strong AI application to environmental/earth science problems  
+- 5 = Directly contributes to Integrated Assessment Modeling, Climate Science, or adaptation using AI/ML. Papers that model weather patterns or niche topics do not belong here. Only research that potentially has large scale implications.
+- 4 = Strong AI application to environmental/earth science problems. Disregard small issues, such as weather forecasting for PV. 
 - 3 = Moderate relevance - AI methods applicable to climate, or climate data with some ML
 - 2 = Tangential - one of AI or climate is central, other is minor
 - 1 = Weak connection - mentions both but not substantive

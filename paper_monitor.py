@@ -157,22 +157,19 @@ def fetch_arxiv_papers(
 
 # Keywords for boolean filtering
 CLIMATE_KEYWORDS = [
-    "climate", "weather", "earth system", "carbon", "ghg", "greenhouse",
-    "adaptation", "mitigation", "emission", "atmospheric", "ocean",
-    "temperature", "precipitation", "drought", "flood", "extreme weather",
+    "climate", "earth system", "carbon", "ghg", "greenhouse",
+    "adaptation", "mitigation", "emission",  "ocean","precipitation", "drought", "flood", "extreme weather",
     "renewable", "energy transition", "decarbonization", "net zero",
     "land use", "deforestation", "biodiversity", "ecosystem",
     "agriculture", "crop", "food security", "water resource",
-    "sea level", "ice sheet", "glacier", "permafrost",
+    "sea level",
 ]
 
 AI_KEYWORDS = [
     "machine learning", "deep learning", "neural network", "ai", 
     "artificial intelligence", "foundation model", "llm", "large language",
-    "transformer", "diffusion model", "generative", "prediction",
-    "forecasting", "classification", "regression", "reinforcement learning",
+    "transformer", "diffusion model", "generative",
     "computer vision", "nlp", "natural language", "embedding",
-    "surrogate model", "emulator", "downscaling",
 ]
 
 
@@ -350,7 +347,7 @@ def generate_digest(
     
     content = "\n".join(md_lines)
     
-    with open(output_path, "w") as f:
+    with open(output_path, "w", encoding='utf-8') as f:
         f.write(content)
     
     print(f"Digest saved to {output_path}")
