@@ -1,0 +1,116 @@
+name: Weekly Climate-AI Digest
+
+on:
+  # Run every Monday at 8am UTC
+  schedule:
+    - cron: '0 8 * * *'
+  
+  # Allow manual trigger
+  workflow_dispatch:
+    inputs:
+      days_back:
+        description: 'Number of days to look back'
+        required: false
+        default: '7'
+      min_score:
+        description: 'Minimum relevance score (0-5)'
+        required: false
+        default: '3'
+      use_llm:
+        description: 'Use Claude API for summaries'
+        required: false
+        default: 'true'
+        type: boolean
+
+env:
+  PYTHON_VERSION: '3.11'
+
+jobs:
+  generate-digest:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: 'pip'
+      
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      
+      - name: Generate digest
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          SEMANTIC_SCHOLAR_API_KEY: ${{ secrets.SEMANTIC_SCHOLAR_API_KEY }}
+        run: |
+          # Set parameters from inputs or defaults
+          DAYS="${{ github.event.inputs.days_back || '7' }}"
+          MIN_SCORE="${{ github.event.inputs.min_score || '3' }}"
+          USE_LLM="${{ github.event.inputs.use_llm || 'true' }}"
+          
+          # Build command
+          CMD="python run_digest.py --days $DAYS --min-score $MIN_SCORE --source both"
+          
+          if [ "$USE_LLM" = "true" ] && [ -n "$ANTHROPIC_API_KEY" ]; then
+            CMD="$CMD --use-llm"
+          fi
+          
+          # Generate dated output filename
+          DATE=$(date +%Y-%m-%d)
+          CMD="$CMD --output output/${DATE}.md"
+          
+          # Create output directory if needed
+          mkdir -p output
+          
+          # Run the digest generator
+          echo "Running: $CMD"
+          $CMD
+      
+      - name: Update latest symlink
+        run: |
+          cd output
+          # Find most recent digest
+          LATEST=$(ls -t *.md 2>/dev/null | head -1)
+          if [ -n "$LATEST" ]; then
+            # Create/update latest.md as a copy (symlinks don't work well on GitHub)
+            cp "$LATEST" latest.md
+            echo "Updated latest.md -> $LATEST"
+          fi
+      
+      - name: Commit and push
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "📚 Weekly Climate-AI digest for $(date +%Y-%m-%d)"
+          file_pattern: 'output/*.md'
+          branch: main
+      
+      - name: Upload digest as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: climate-ai-digest-${{ github.run_number }}
+          path: output/*.md
+          retention-days: 30
+
+  # Optional: Send notification
+  notify:
+    needs: generate-digest
+    runs-on: ubuntu-latest
+    if: success()
+    
+    steps:
+      - name: Summary
+        run: |
+          echo "## 🌍 Climate-AI Digest Generated" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "A new weekly digest has been generated and committed to the repository." >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "View the latest digest in the \`output/\` folder." >> $GITHUB_STEP_SUMMARY
