@@ -11,11 +11,11 @@ on:
       days_back:
         description: 'Number of days to look back'
         required: false
-        default: '7'
+        default: '1'
       min_score:
         description: 'Minimum relevance score (0-5)'
         required: false
-        default: '3'
+        default: '2'
       use_llm:
         description: 'Use Claude API for summaries'
         required: false
