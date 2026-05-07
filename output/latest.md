@@ -1,81 +1,47 @@
 # 🌍 Climate-AI Research Digest
 
-**Generated:** 2026-05-06
-**Papers reviewed:** 8
+**Generated:** 2026-05-04
+**Papers reviewed:** 12
 
 ---
 
 ## 🔥 High Relevance Papers
 
-### [Towards accurate extreme event likelihoods from diffusion model climate emulators](https://arxiv.org/abs/2605.03802v1)
-
-**Authors:** Peter Manshausen, Noah Brenowitz, Julius Berner...
-**Published:** 2026-05-05
-**Categories:** physics.ao-ph, cs.LG
-**Relevance Score:** ⭐⭐⭐⭐
-
-# Research Summary: Diffusion Model Climate Emulators for Extreme Event Likelihoods
-
-**Main Contribution:**
-Demonstrates that diffusion model climate emulators (specifically Climate in a Bottle/cBottle) can provide accurate probability density estimates for atmospheric states, enabling quantification of extreme event likelihoods through guided generation and odds ratio calculations.
-
-**Method:**
-- Leverages diffusion models' ability to approximate training data probability densities
-- Uses classifier-free guidance to steer generation toward extreme events (tropical cyclones)
-- Compares probability densities between guided and unguided model outputs to calculate likelihood ratios
-- Applies importance sampling to reduce variance in probability estimates versus standard Monte Carlo
-
-**Data:**
-Not explicitly specified in abstract; trained on atmospheric state data conditioned on boundary conditions (solar position, sea surface temperatures).
-
-**Climate Relevance:**
-Addresses critical need for efficient extreme event attribution and likelihood estimation—essential for understanding how climate change alters TC occurrence probabilities and supporting climate adaptation planning.
-
-**Implications:**
-Enables cost-effective scenario exploration and probabilistic risk assessment for extreme weather without expensive full climate simulations; applicable to insurance, infrastructure planning, and climate policy decisions.
-
-**Limitations:**
-Authors acknowledge this is preliminary work; limitations of applying model probability densities to attribution-style experiments remain incompletely characterized; generalization beyond TCs unclear.
-
-**TL;DR:**
-Diffusion climate emulators can quantify how much more likely extreme events become under specific conditions by extracting probability densities, improving efficiency of climate risk assessment.
-
----
-
-### [Leveraging Climate Services to Build Climate Resilient Power Systems](https://arxiv.org/abs/2605.00717v2)
+### [Leveraging Climate Services to Build Climate Resilient Power Systems](https://arxiv.org/abs/2605.00717v1)
 
 **Authors:** Laurent Dubus, Alberto Troccoli, Aron zuiker...
 **Published:** 2026-05-01
 **Categories:** physics.ao-ph
 **Relevance Score:** ⭐⭐⭐⭐⭐
 
-# Research Summary: Climate Services for Resilient Power Systems
+# Research Summary: Climate-Resilient Power Systems
 
 **Main Contribution:**
-Demonstrates the critical need for systematic integration of climate information into power system planning and presents the Pan-European Climate Database (PECD4.2) as a standardized solution for bridging climate science and energy sector decision-making.
+Demonstrates the necessity of systematically integrating climate information into energy system planning and presents the Pan-European Climate Database (PECD4.2) as a standardized infrastructure for this integration.
 
 **Method:**
-- Integrates historical reanalysis with six climate models across four SSP scenarios
-- Uses physical conversion models (rather than ML) for wind/solar energy to better capture technological progression and future robustness
-- Harmonizes multi-source climate data into standardized, openly accessible datasets for energy applications
+• Physical conversion models (wind/solar) rather than machine learning approaches
+• Multi-model ensemble approach using six climate models across four SSP scenarios
+• Harmonization of historical reanalysis and climate projections into unified datasets
+• Integration of compound events and spatial correlations across borders
 
 **Data:**
-Pan-European Climate Database (PECD4.2): historical reanalysis + 6 climate models × 4 SSPs; developed by ENTSO-E and Copernicus Climate Change Service (C3S)
+Pan-European Climate Database (PECD4.2): historical reanalysis + 6 climate models × 4 SSPs (Shared Socioeconomic Pathways), developed by ENTSO-E and Copernicus Climate Change Service (C3S)
 
 **Climate Relevance:**
-Addresses dual climate impacts on energy systems: short-term weather variability affecting supply/demand and long-term climate trends increasing infrastructure risks, extreme events, and compound event uncertainty across spatial scales.
+Addresses dual climate impacts on power systems: short-term weather variability affecting supply/demand and long-term climate trends increasing infrastructure risks, extreme event frequency, and asset lifetime uncertainty.
 
 **Implications:**
-Enables more robust energy infrastructure planning under climate change; reduces divergence in climate risk assessment across European power systems; supports cross-border coordination by providing harmonized datasets.
+Enables more robust energy infrastructure planning under climate change; reduces divergence in climate risk assessment across energy stakeholders; supports cross-border power system adequacy studies.
 
 **Limitations:**
-- Hydropower modeling remains underdeveloped
-- Lack of public harmonized energy datasets for model training
-- Complex processing chains create adoption delays; standardized integration protocols needed
-- Requires closer collaboration between climate and energy stakeholders
+• Inadequate hydropower modeling capabilities
+• Lack of public harmonized energy datasets for model training
+• Complex processing chains create delays in adoption
+• Persistent uncertainties from multiple climate models and downscaling methodologies
 
 **TL;DR:**
-PECD4.2 standardizes climate data integration for power system planning, but bridging climate science and energy sectors requires improved tools, hydropower models, and stakeholder communication.
+Standardized climate-energy datasets improve power system resilience planning by integrating multi-model climate projections, though hydropower modeling and stakeholder collaboration gaps remain.
 
 ---
 
@@ -86,28 +52,28 @@ PECD4.2 standardizes climate data integration for power system planning, but bri
 **Categories:** cs.LG, physics.ao-ph, stat.ML
 **Relevance Score:** ⭐⭐⭐⭐
 
-# M-CaStLe: Multivariate Causal Discovery for Space-Time Gridded Data
+# M-CaStLe: Multivariate Causal Discovery in Space-Time Gridded Data
 
 **Main Contribution:**
-Extends the CaStLe causal discovery algorithm to multivariate systems, enabling joint identification of within-variable and cross-variable causal structures in high-dimensional space-time gridded data where observations are limited relative to spatial dimensions.
+Extends the CaStLe algorithm to discover multivariate causal structures in high-dimensional space-time gridded data by jointly modeling within-variable and cross-variable dependencies. Addresses the challenge of discovering causality when spatial grid cells vastly outnumber temporal observations.
 
 **Method:**
-Generalizes local embedding and parent identification phases to handle multivariate relationships while constraining candidate parents to fixed space-time neighborhoods and pooling spatial replicates to increase effective sample size. Decomposes resulting causal graphs into reaction and spatial components for interpretability.
+Generalizes local embedding and parent-identification phases to multivariate settings using constant-size space-time neighborhoods and spatial pooling to increase effective sample size. Decomposes resulting multivariate stencil graphs into reaction and spatial components for interpretability.
 
 **Data:**
-Synthetic multivariate vector autoregression benchmark; advective-diffusive-reaction PDE verification problem; atmospheric chemistry observations (low temporal sampling); ENSO reanalysis data.
+Synthetic multivariate vector autoregression; advective-diffusive-reaction PDE simulations; atmospheric chemistry observations; El Niño Southern Oscillation (ENSO) reanalysis data.
 
 **Climate Relevance:**
-Directly applicable to climate systems with sparse temporal observations but dense spatial grids (e.g., satellite data, reanalysis products). Demonstrates utility for understanding ocean-atmosphere coupling in ENSO and atmospheric chemistry dynamics.
+Directly applicable to atmospheric chemistry, ocean-atmosphere coupling, and climate oscillations where gridded observational/model data are abundant but temporal samples per location are limited—a common constraint in climate science.
 
 **Implications:**
-Enables discovery of physically meaningful causal relationships in climate datasets without requiring extensive temporal records, supporting process-level understanding and model validation in data-limited regimes common in climate science.
+Enables identification of physically meaningful causal mechanisms in climate systems (e.g., phase-dependent ENSO coupling) while maintaining grid-level interpretability, supporting process-based understanding rather than black-box prediction.
 
 **Limitations:**
-Assumes local stationarity and space-time locality; effectiveness depends on neighborhood size selection; validation limited to relatively small-scale systems compared to global climate models.
+Assumes space-time locality and stationarity; effectiveness depends on sufficient spatial replicates; validation limited to relatively small-scale systems compared to global climate models.
 
 **TL;DR:**
-M-CaStLe discovers multivariate causal structures in climate gridded data with limited temporal samples by exploiting spatial replication and local stationarity assumptions.
+M-CaStLe discovers multivariate causal structures in high-dimensional climate gridded data by exploiting spatial replication and local neighborhoods, enabling interpretable identification of coupled atmospheric and oceanic dynamics.
 
 ---
 
@@ -121,25 +87,25 @@ M-CaStLe discovers multivariate causal structures in climate gridded data with l
 # Research Summary: Amazon Rainforest Safe Operating Space
 
 **Main Contribution:**
-Quantifies the joint threshold of global warming and deforestation beyond which the Amazon rainforest loses resilience and may tip to savannah. Demonstrates that the Amazon has likely already exceeded its safe operating space under current conditions (~1.4°C warming + 17% deforestation).
+Quantifies the joint threshold of global warming and deforestation beyond which the Amazon rainforest loses resilience and risks tipping to savannah. Demonstrates that the Amazon may have already exceeded its safe operating space under current conditions.
 
 **Method:**
-Reduced complexity model integrating climate model outputs with forest resilience dynamics. Explicitly incorporates adaptive forest capacities and atmospheric moisture recycling feedback mechanisms to assess system stability across warming-deforestation parameter space.
+Reduced complexity model integrating climate model outputs with forest resilience metrics, explicitly accounting for adaptive forest capacities and atmospheric moisture recycling feedback mechanisms to assess system stability across warming-deforestation parameter space.
 
 **Data:**
-Global climate model environmental data; current deforestation extent (~17%); historic and projected deforestation patterns; atmospheric moisture recycling estimates.
+Global climate model environmental data; current conditions: ~1.4°C warming and ~17% deforestation; historic and projected deforestation patterns.
 
 **Climate Relevance:**
-Addresses the Amazon as a critical tipping element in the climate system. Quantifies synergistic interactions between anthropogenic warming and land-use change—two primary drivers threatening ecosystem stability—rather than treating them independently.
+Addresses a critical tipping element in the climate system; synergistic interactions between anthropogenic warming and land-use change represent a major compound climate risk with potential for irreversible ecosystem state shifts.
 
 **Implications:**
-Supports urgent dual action: (1) ambitious climate mitigation to meet Paris Agreement targets, and (2) immediate nature protection to halt net deforestation. Suggests current trajectories are incompatible with Amazon preservation.
+Supports urgent need for dual action: ambitious climate mitigation (Paris Agreement targets) and immediate deforestation cessation to maintain Amazon stability; findings indicate current trajectory is unsustainable.
 
 **Limitations:**
-Reduced complexity modeling may not capture all regional heterogeneity; projections depend on climate model accuracy; deforestation pattern assumptions affect outcomes.
+Reduced complexity model may not capture all regional heterogeneity; uncertainty ranges for tipping point thresholds (2-6°C) reflect model sensitivity; projections depend on climate model accuracy.
 
 **TL;DR:**
-The Amazon rainforest has likely already exceeded safe operating conditions under combined current warming and deforestation, requiring immediate climate and conservation action.
+The Amazon rainforest has likely already exceeded its safe operating space due to combined warming (~1.4°C) and deforestation (~17%), requiring immediate climate and conservation action.
 
 ---
 
@@ -150,30 +116,169 @@ The Amazon rainforest has likely already exceeded safe operating conditions unde
 **Categories:** physics.ao-ph
 **Relevance Score:** ⭐⭐⭐⭐
 
-# Research Summary: Antarctic Sea Ice Predictability via Multiscale Decomposition
+# Research Summary: Antarctic Sea Ice Predictability via Dynamic Mode Decomposition
 
 **Main Contribution:**
-Develops a computationally efficient Dynamic Mode Decomposition (DMD) framework that separates interannual variability from climate change signals in Antarctic sea ice, enabling skillful 2-year advance forecasts of sea ice concentration anomalies.
+Develops a hierarchical Dynamic Mode Decomposition (DMD) framework that separates interannual climate variability from long-term climate trends in Antarctic sea ice, revealing a dominant climate change signal emerging in 2022 and enabling skillful 2-year advance forecasts.
 
 **Method:**
-• Hierarchical DMD applied to satellite sea ice concentration data to extract coherent spatiotemporal modes
-• Regularized predictive DMD model (IceDMD) prioritizes stationary modes for forecasting
-• Decomposes observed variability into interannual and long-term trend components
+- Hierarchical DMD decomposes satellite sea ice concentration (SIC) into coherent spatiotemporal modes
+- Regularized predictive DMD model (IceDMD) prioritizes stationary modes for forecasting
+- Distinguishes between oscillatory interannual modes and monotonic climate trend components
 
 **Data:**
-Satellite observations of Antarctic sea ice concentration (SIC) spanning decades, with focus on 2012-2024 period capturing recent dramatic changes.
+Satellite-derived sea ice concentration observations spanning multiple decades with focus on 2012-2024 period.
 
 **Climate Relevance:**
-Antarctic sea ice exhibits complex, non-monotonic behavior—decades of expansion followed by 2014-2017 collapse, recovery, and 2022-present renewed decline. This study isolates the emerging climate change signal (post-2012) from natural interannual oscillations, critical for understanding Southern Ocean response to warming.
+Antarctic sea ice exhibits complex multi-scale behavior—decades of expansion reversed by abrupt 2014-2017 decline, recovery, and renewed collapse from 2022 onward—making it a critical indicator of Southern Ocean response to climate forcing and a key uncertainty in climate projections.
 
 **Implications:**
-Provides operational seasonal-to-annual forecasting capability for Antarctic SIC with minimal computational cost and high interpretability, supporting climate adaptation planning and oceanographic research. Framework generalizable to other multiscale geophysical systems.
+Enables seasonal-to-annual operational forecasts with superior skill and computational efficiency compared to existing models; provides physically interpretable decomposition useful for understanding sea ice dynamics and improving climate model diagnostics.
 
 **Limitations:**
-Not explicitly stated; potential constraints include satellite data quality/coverage limitations and assumption that past mode dynamics persist into future forecasts.
+Forecast skill horizon capped at ~2 years; method validation limited to Antarctic system (generalizability to other regions requires testing); underlying drivers of mode interactions not fully mechanistically explained.
 
 **TL;DR:**
-DMD-based decomposition separates climate trends from natural variability in Antarctic sea ice, enabling skillful 2-year forecasts at low computational cost.
+DMD-based decomposition isolates climate trends from interannual variability in Antarctic sea ice and delivers computationally cheap, interpretable 2-year forecasts outperforming existing approaches.
+
+---
+
+### [A mathematical study of an elastic-viscous-plastic sea-ice model with the Kelvin-Voigt rheology](https://arxiv.org/abs/2604.26295v1)
+
+**Authors:** Daniel W. Boutros, Xin Liu, Marita Thomas...
+**Published:** 2026-04-29
+**Categories:** math.AP, physics.ao-ph, physics.geo-ph
+**Relevance Score:** ⭐⭐⭐⭐
+
+# Research Summary: Kelvin-Voigt Regularized Sea-Ice Model
+
+**Main Contribution:**
+Develops and proves mathematical well-posedness of an elastic-viscous-plastic (EVP) sea-ice model using Kelvin-Voigt regularization in the momentum balance. Extends previous work by handling more realistic viscosity coefficients and weaker initial data requirements.
+
+**Method:**
+- Introduces Voigt regularization directly into momentum equations rather than constitutive relations
+- Proves local well-posedness with advection; global well-posedness without advection
+- Derives novel L∞-estimates for stress tensors exploiting damping structure
+- Handles unbounded viscosity coefficients (open problem for related Hibler model)
+
+**Data:**
+No empirical datasets used; purely theoretical mathematical analysis of model equations.
+
+**Climate Relevance:**
+Directly addresses the EVP sea-ice model used in large-scale climate simulations. Improved mathematical foundations enhance reliability of sea-ice dynamics predictions in coupled climate models, critical for Arctic climate projections.
+
+**Implications:**
+Provides rigorous theoretical validation for sea-ice rheology formulations used operationally in climate models. More flexible viscosity handling could improve computational efficiency and accuracy of sea-ice forecasts in climate simulations.
+
+**Limitations:**
+Global well-posedness proof requires omitting advection term; local results with advection may limit applicability to full ocean-ice coupling scenarios in climate models.
+
+**TL;DR:**
+Mathematically validates a physically-motivated sea-ice model variant with improved theoretical properties relevant to climate simulation codes.
+
+---
+
+### [Evaluating local climate in global storm-resolving models with the Köppen-Geiger classification](https://arxiv.org/abs/2604.25447v1)
+
+**Authors:** Chiel C. van Heerwaarden, Menno A. Veerman, Imme Benedict...
+**Published:** 2026-04-28
+**Categories:** physics.ao-ph
+**Relevance Score:** ⭐⭐⭐⭐
+
+# Research Summary: Köppen-Geiger Classification in Storm-Resolving Climate Models
+
+**Main Contribution:**
+Evaluates how well two cutting-edge global storm-resolving models (ICON and IFS-FESOM) reproduce local climate classifications using the Köppen-Geiger system, identifying regional biases and climate change projections at 9 km resolution.
+
+**Method:**
+• Compared 30-year model simulations (2020–2049) against Köppen-Geiger climate classification scheme
+• Diagnostic decomposition: substituted observed temperature/precipitation to isolate error sources
+• Analyzed five main climate categories and their boundaries across global domains
+
+**Data:**
+• ICON and IFS-FESOM models from nextGEMS project at ~9 km resolution
+• SSP3-7.0 emissions scenario
+• CMIP6 ensemble for climate change signal comparison
+
+**Climate Relevance:**
+Storm-resolving models aim to provide decision-relevant local-scale climate information; Köppen-Geiger classification directly maps to human-experienced climate zones and ecosystem distributions, making it ideal for evaluating model utility for adaptation planning.
+
+**Implications:**
+• Identifies where models fail (e.g., Amazonian precipitation, Australian deserts) to guide model development
+• Reveals that present-day model uncertainty often exceeds 30-year climate change signals, cautioning against over-confidence in regional projections
+• Proposes Köppen-Geiger as a standard diagnostic for tracking progress in climate modeling
+
+**Limitations:**
+Inter-model disagreement on present-day climate limits confidence in regional adaptation planning; precipitation errors dominate but sources remain partially undiagnosed.
+
+**TL;DR:**
+Storm-resolving models capture global climate zones reasonably well but show substantial regional biases where precipitation errors dominate, with present-day uncertainty often exceeding projected climate change signals.
+
+---
+
+### [Conditional Flow Matching for Probabilistic Downscaling of Maximum 3-day Snowfall in Alaska](https://arxiv.org/abs/2604.25172v1)
+
+**Authors:** Douglas Brinkerhoff, Elizabeth Fischer
+**Published:** 2026-04-28
+**Categories:** physics.comp-ph, cs.LG, physics.ao-ph
+**Relevance Score:** ⭐⭐⭐⭐
+
+# Research Summary: Conditional Flow Matching for Probabilistic Snowfall Downscaling
+
+**Main Contribution:**
+WxFlow, a generative AI model that downscales coarse-resolution climate model precipitation to fine-scale probabilistic ensembles, achieving 87.8% improvement in spectral fidelity while reducing computational cost from months to seconds.
+
+**Method:**
+Conditional flow matching (a generative modeling technique) learns mappings from coarse climate model output (50–100 km) and high-resolution topographic data to calibrated 4 km precipitation fields. The model generates 50-member ensemble predictions with physically coherent spatial uncertainty structure.
+
+**Data:**
+WRF (Weather Research and Forecasting) dynamical downscaling simulations of maximum 3-day snowfall over southeast Alaska at 4 km resolution; coarse climate model fields at 50–100 km resolution.
+
+**Climate Relevance:**
+Addresses the critical gap between climate model resolution and orographic precipitation processes in complex terrain. Enables probabilistic uncertainty quantification for regional precipitation extremes—essential for water resource and hazard assessment in mountainous regions.
+
+**Implications:**
+Enables rapid generation of large ensemble precipitation datasets for climate impact studies, risk assessment, and scenario analysis without prohibitive computational costs. Applicable to other precipitation-downscaling problems in complex terrain.
+
+**Limitations:**
+Demonstrated only for maximum 3-day snowfall in one region (southeast Alaska); generalization to other precipitation types, regions, or climate models not yet established. Requires high-resolution WRF training data.
+
+**TL;DR:**
+Flow matching enables fast, probabilistic downscaling of climate precipitation from 50–100 km to 4 km resolution with improved accuracy and ensemble uncertainty quantification.
+
+---
+
+### [Amplified Urban Climate Extremes from Global Warming-Urbanization Synergy: A Physics-Informed Intelligence Paradigm](https://arxiv.org/abs/2604.24333v2)
+
+**Authors:** Qiuxia Wu, Yaqiang Wang, Huabing Ke
+**Published:** 2026-04-27
+**Categories:** physics.ao-ph
+**Relevance Score:** ⭐⭐⭐⭐⭐
+
+# Research Summary: Urban Climate Extremes and AI Integration
+
+**Main Contribution:**
+Proposes a "Classification-Mechanism-Inference" (CMI) framework that integrates physics-informed machine learning with climate science to systematically understand and predict amplified climate extremes in cities resulting from the synergy between global warming and urbanization.
+
+**Method:**
+- **Classification:** Develops a global urban "climate-morphology-development" typology for systematic cross-case comparison
+- **Mechanism:** Employs physics-informed machine learning (PIML) to create efficient, physics-constrained surrogate models that capture nonlinear warming-urbanization interactions
+- **Inference:** Uses trained models for high-throughput, context-specific urban climate risk projections
+
+**Data:**
+Not explicitly specified in abstract; framework is designed to integrate observational data and simulation outputs across multiple urban case studies globally.
+
+**Climate Relevance:**
+Directly addresses the compounding amplification of urban heat extremes from coupled global warming and urbanization—a critical climate justice issue affecting billions of urban residents, particularly in developing regions.
+
+**Implications:**
+Enables decision-relevant, tailored climate adaptation planning for cities by bridging the gap between computationally intensive high-resolution models and interpretable AI tools; supports climate-resilient urban development strategies.
+
+**Limitations:**
+Abstract does not detail validation metrics, specific case studies, or computational efficiency gains; generalizability of the typology across diverse urban contexts remains to be demonstrated.
+
+**TL;DR:**
+A physics-informed ML framework systematically integrates global urban typologies with mechanistic modeling to predict and inform adaptation to compounded warming-urbanization climate extremes.
 
 ---
 
@@ -187,100 +292,135 @@ DMD-based decomposition separates climate trends from natural variability in Ant
 # D-SHIFT: GRACE Daily High-Resolution Water Storage Mapping
 
 **Main Contribution:**
-Introduces a GAN-based framework that generates daily, high-resolution terrestrial water storage anomaly (TWSA) fields by transferring spatial information from monthly GRACE mascon products to daily spherical harmonic solutions, overcoming the temporal-resolution and spatial-resolution trade-off in existing products.
+Introduces D-SHIFT, a generative adversarial network (GAN) framework that downscales monthly GRACE mascon products to generate daily, high-resolution terrestrial water storage anomaly (TWSA) fields, bridging the temporal-spatial resolution gap in satellite gravimetry observations.
 
 **Method:**
-• Generative Adversarial Network trained in monthly domain using low-resolution daily SHC solutions + auxiliary features as inputs, targeting monthly mascon products
-• Transfer learning: model applied to daily SHC inputs to produce daily outputs with monthly-equivalent spatial resolution
-• Validation via basin-area double-difference analysis to assess localized signal recovery
+• GAN-based architecture trained in monthly domain using low-resolution daily spherical harmonic coefficients (SHC) and auxiliary features as inputs
+• Targets monthly mascon products as ground truth during training
+• Transfers learned spatial patterns to daily SHC inputs for inference
+• Employs feature transformation to enhance spatial coherence
 
 **Data:**
-GRACE/GRACE-FO monthly mascon products, daily spherical harmonic coefficient solutions, auxiliary hydrological features; validation includes Greenland basin-scale trends and global gridded comparisons.
+GRACE/GRACE-FO monthly mascon products, daily SHC solutions, and auxiliary hydrological features; validation includes basin-scale comparisons and Greenland ice sheet analysis.
 
 **Climate Relevance:**
-Enables monitoring of high-frequency hydrological extremes (floods, droughts) and rapid ice-sheet mass loss at daily timescales with spatial detail previously limited to monthly products—critical for understanding water cycle variability and cryospheric change.
+Enables detection and monitoring of high-frequency hydrological extremes (floods, droughts) and rapid cryospheric changes (ice sheet mass loss) at daily timescales—critical for understanding climate-driven water cycle variability and ice dynamics.
 
 **Implications:**
-Improves early warning capabilities for water-related disasters; better characterization of coastal mass loss in Greenland; enhanced trend and seasonality estimates for basin-scale water resource management and climate impact assessment.
+Improves basin-scale trend and seasonality estimates; particularly valuable for spatially localized signals (coastal mass loss, regional aquifer depletion) previously obscured by smoothing artifacts; supports early warning systems for hydrological hazards.
 
 **Limitations:**
-Model trained only in monthly domain; validation primarily against mascon products (potential circularity); performance on extreme events not explicitly demonstrated; computational cost not discussed.
+Training-inference domain mismatch (monthly training, daily application) may introduce artifacts; validation primarily against mascon products rather than independent ground truth; computational requirements not discussed.
 
 **TL;DR:**
-GAN-based framework generates daily GRACE water storage maps with monthly-equivalent spatial resolution, enabling high-frequency hydrological and cryospheric monitoring.
+Deep learning framework generates daily, high-resolution GRACE water storage maps by learning spatial patterns from monthly products, enabling better detection of rapid hydrological and cryospheric changes.
+
+---
+
+### [Estimating the Resilience of Non-Stationary Systems](https://arxiv.org/abs/2604.24345v1)
+
+**Authors:** Taylor Smith, Andreas Morr, Christof Schötz...
+**Published:** 2026-04-27
+**Categories:** nlin.CD, physics.geo-ph
+**Relevance Score:** ⭐⭐⭐⭐
+
+# Research Summary: Estimating Resilience of Non-Stationary Systems
+
+**Main Contribution:**
+Introduces a regression-based Langevin Equation method to estimate resilience (critical slowing down) in non-stationary Earth systems, overcoming limitations of existing autocorrelation-based approaches that fail when seasonal or other time-varying forcings are present.
+
+**Method:**
+• Formulates resilience estimation as a regression problem using the Langevin Equation framework
+• Handles non-stationarity directly without requiring extensive preprocessing
+• Incorporates time-varying uncertainties and recovers confidence bounds on stability estimates
+• Extends naturally to spatial systems; compatible with irregular sampling and data gaps
+
+**Data:**
+Tested on synthetic datasets and real-world Earth system observations (specific datasets not detailed in abstract, but vegetation systems mentioned as primary application).
+
+**Climate Relevance:**
+Directly addresses a critical gap in early-warning systems for Earth system tipping points. Seasonal forcing (e.g., vegetation cycles, ocean oscillations) makes traditional resilience metrics unreliable; this method enables robust stability assessment across non-stationary components like global vegetation, ice sheets, and ocean circulation.
+
+**Implications:**
+Provides a practical, widely-applicable tool for monitoring ecosystem and climate subsystem stability. Can be immediately adopted as a replacement for existing methods in climate monitoring frameworks and early-warning systems.
+
+**Limitations:**
+Not explicitly stated; method validation scope unclear from abstract alone.
+
+**TL;DR:**
+New regression-based method reliably estimates Earth system resilience despite seasonal and non-stationary dynamics, improving early-warning capacity for climate tipping points.
 
 ---
 
 ## 📊 Medium Relevance Papers
 
-### [Prediction and Predictability of the Wet-Season Rainfall over Southeast India](https://arxiv.org/abs/2605.01326v1)
+### [Observation-Guided Neural Surrogate Learning for Scientific Simulation Emulation: A Single-Gauge Flood-Inundation Proof of Concept](https://arxiv.org/abs/2604.25890v1)
 
-**Authors:** Harini S, Devabrat Sharma, Yogenraj Patil...
-**Published:** 2026-05-02
+**Authors:** Marzieh Alireza Mirhoseini
+**Published:** 2026-04-28
 **Categories:** physics.ao-ph
 **Relevance Score:** ⭐⭐⭐
 
-# Research Summary: Wet-Season Rainfall Prediction over Southeast India
+# Research Summary
 
 **Main Contribution:**
-Demonstrates that despite increasing rainfall variability in Tamil Nadu, seasonal predictability can be achieved through global tropical SST patterns, with skillful forecasts possible up to 10 months in advance using data-driven methods.
+Demonstrates a hybrid neural surrogate framework that combines physics-based hydrodynamic simulations with observation-guided deep learning to emulate flood-inundation maps with minimal real-world data (single gauge station).
 
 **Method:**
-• Data-driven predictability analysis using SST anomalies as predictors
-• Identification of dominant climate drivers via SST climate networks
-• Analysis of long-lead (10-month) versus simultaneous (0-month) predictability
-• Trend analysis of rainfall variability, convective inhibition, and monsoon onset/withdrawal timing
+- Ensemble-approximated Gaussian Process (EnsCGP) generates coarse flood-depth estimates with uncertainty quantification
+- U-Net with Atrous Spatial Pyramid Pooling (ASPP) refines predictions using simulation outputs, geospatial features, and rainfall
+- Single gauge observation constrains training only at mapped pixel location; simulation-based losses evaluated elsewhere
 
 **Data:**
-Observational rainfall and SST datasets over Tamil Nadu and tropical Indo-Pacific/Atlantic regions; specific datasets not explicitly named in abstract.
+LISFLOOD-FP hydrodynamic simulations for Chicago metropolitan area (256×256 grid); Gauge L stage records (2013–2019); rainfall and geospatial inputs.
 
 **Climate Relevance:**
-Addresses critical challenge of sub-regional monsoon rainfall prediction in a warming climate, where increasing surface temperature and moisture convergence are amplifying rainfall variability and altering monsoon seasonality in South Asia.
+Addresses urban flood risk under extreme precipitation events—a key climate adaptation challenge for cities facing intensified rainfall from climate change.
 
 **Implications:**
-Enables improved seasonal rainfall forecasting for Tamil Nadu agriculture and water resource management; methodology transferable to other monsoon-dependent regions facing enhanced climate variability.
+Enables rapid flood-inundation mapping with sparse observational networks, reducing computational cost of physics-based simulations while maintaining accuracy for operational flood forecasting and risk assessment.
 
 **Limitations:**
-Abstract does not specify model validation metrics, forecast skill scores, or comparison with operational forecasting systems; unclear whether methodology accounts for future climate change impacts on predictor-predictand relationships.
+Authors explicitly note results demonstrate simulator emulation, not independent validation of real-world inundation accuracy; not presented as complete operational system; single-site gauge constraint limits generalization to ungauged regions.
 
 **TL;DR:**
-Global tropical ocean temperatures enable skillful 10-month advance prediction of Tamil Nadu monsoon rainfall despite increasing local variability.
+Physics-informed neural networks with minimal observational guidance can efficiently emulate expensive hydrodynamic flood simulations for urban flood mapping.
 
 ---
 
-### [A Review of Modeling and Waveform Inversion for Marine Seismic Data](https://arxiv.org/abs/2605.01677v1)
+### [The Physical Limit of Neural Hypoxia Detection in the Black Sea from Satellite Observations](https://arxiv.org/abs/2604.25608v1)
 
-**Authors:** Guoxin Chen
-**Published:** 2026-05-03
-**Categories:** physics.geo-ph
+**Authors:** Victor Mangeleer, Luc Vandenbulcke, Marilaure Grégoire...
+**Published:** 2026-04-28
+**Categories:** physics.ao-ph
 **Relevance Score:** ⭐⭐⭐
 
-# Research Summary: Marine Seismic Modeling and AI Integration
+# Research Summary: Neural Hypoxia Detection in the Black Sea
 
 **Main Contribution:**
-This review synthesizes advances in full-waveform inversion (FWI) and AI-driven approaches for marine seismic exploration. It documents the shift from physics-driven to physics-constrained, data-driven hybrid methodologies across 11 papers spanning six technical domains.
+Develops a deep generative neural network to infer oxygen levels in the Black Sea from satellite surface observations, framing the problem as a Bayesian inverse problem. Demonstrates that real-time hypoxia monitoring from satellite data is physically feasible but limited by observational constraints.
 
 **Method:**
-- Full-waveform inversion (FWI) with elastic inversion frameworks
-- Physics-guided deep learning for velocity model inversion
-- Intelligent interpolation for data preprocessing
-- Multi-source joint inversion and low-frequency recovery techniques
-- Cycle-skipping suppression algorithms for improved convergence
+• Deep generative model trained on numerical model outputs to approximate posterior distribution of sea states
+• Bayesian inverse problem framework linking surface satellite observations to subsurface oxygen conditions
+• Leverages mixing layer homogeneity to infer subsurface states from surface data
 
 **Data:**
-Marine seismic datasets from ocean-bottom node (OBN), ocean-bottom cable (OBC), streamer, and passive-source acquisition scenarios; specific datasets not enumerated in abstract.
+Black Sea satellite observations and numerical model simulations (specific datasets not detailed in abstract).
 
 **Climate Relevance:**
-Directly supports carbon sequestration monitoring and seabed hazard detection—critical for assessing subsurface CO₂ storage integrity and identifying geological risks in climate mitigation infrastructure.
+Coastal hypoxia (oxygen depletion) is a critical ocean health indicator threatening marine biodiversity. The Black Sea is particularly vulnerable due to its restricted circulation and high respiration rates. Real-time monitoring supports ecosystem protection and climate adaptation strategies.
 
 **Implications:**
-Enables cost-effective deep-water exploration, enhanced seabed characterization for offshore engineering safety, and reliable monitoring of carbon storage sites—essential for scaling geological carbon dioxide removal (CDR) technologies.
+Enables operational hypoxia detection systems for coastal management and early warning of ecosystem collapse. Could be adapted to other oxygen-minimum zones globally (e.g., Baltic Sea, Gulf of Mexico).
 
 **Limitations:**
-Review-level analysis; specific performance metrics, validation results, or comparative benchmarks not detailed in abstract; applicability across diverse geological settings unclear.
+• Detection accuracy limited to mixing layer; subsurface inference unreliable below thermocline
+• Summer detection rate only 38% with 47% precision—insufficient for operational deployment without improvements
+• Requires longer assimilation windows or additional observational data (e.g., in-situ profiles, biogeochemical sensors)
 
 **TL;DR:**
-AI-enhanced seismic inversion methods advance marine subsurface imaging for carbon sequestration monitoring and offshore resource exploration.
+Neural networks can detect Black Sea hypoxia from satellites but are fundamentally limited by mixing layer physics, achieving only 38% detection during summer.
 
 ---
 
