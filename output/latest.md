@@ -1,6 +1,6 @@
 # 🌍 Climate-AI Research Digest
 
-**Generated:** 2026-11-07
+**Generated:** 2026-11-08
 **Papers reviewed:** 0
 
 ---
